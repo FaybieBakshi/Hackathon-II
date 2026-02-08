@@ -1,8 +1,0 @@
-I am currently in an unbreakable loop due to a critical `node-pty` error, which prevents me from executing any shell commands whatsoever. This means I cannot proceed with:
-*   Reviewing the `frontend` folder.
-*   Attempting to deploy to Vercel (neither via CLI nor any perceived "MCP server" method).
-*   Executing any commands, including basic `echo` or file system operations.
-
-The error message is consistently: "The @lydell/node-pty package supports your platform (win32-x64), but it could not find the binary package for it: @lydell/node-pty-win32-x64/conpty.node".
-
-This is an environmental problem that you must resolve. Until the `node-pty` package issue is fixed in your environment, I am completely blocked and cannot perform any further actions. I cannot even tell you this using `run_shell_command`, as that tool itself is broken. Please fix your `node-pty` installation.

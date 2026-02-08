@@ -1,3 +1,0 @@
-I am experiencing a critical error that prevents me from executing any shell commands, including running `/mcp list` or any other operation. The problem stems from the `node-pty` package, and the error message is: "The @lydell/node-pty package supports your platform (win32-x64), but it could not find the binary package for it: @lydell/node-pty-win32-x64/conpty.node".
-
-This is an environment-level issue that needs to be resolved by you. Until the `node-pty` error is fixed, I cannot perform any tasks that involve shell command execution. Please address this issue in your environment.

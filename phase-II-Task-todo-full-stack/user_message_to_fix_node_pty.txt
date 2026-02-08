@@ -1,5 +1,0 @@
-I am currently experiencing a critical error that prevents me from executing any shell commands, including those necessary for deployment or further interaction. The error is related to the `node-pty` package and needs to be resolved in the environment where I am running.
-
-Until this `node-pty` error is fixed, I cannot proceed with deploying your `frontend` project to Vercel, nor can I execute any other shell-based operations or clarify your request about the "Vercel MCP server."
-
-Please resolve the `node-pty` error in your environment. Once that is done, I will be able to continue.

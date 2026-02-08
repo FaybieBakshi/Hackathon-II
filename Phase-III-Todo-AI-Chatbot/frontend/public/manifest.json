@@ -1,0 +1,10 @@
+{
+  "name": "TaskFlow",
+  "short_name": "TaskFlow",
+  "description": "Organize your life, achieve your goals",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait"
+}
