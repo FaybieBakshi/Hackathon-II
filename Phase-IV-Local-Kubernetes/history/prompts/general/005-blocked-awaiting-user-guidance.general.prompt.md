@@ -1,0 +1,1 @@
+I am blocked and cannot execute any shell commands due to the persistent `node-pty` error. I need the user's guidance to resolve this environment issue. I will wait for the user's next input.

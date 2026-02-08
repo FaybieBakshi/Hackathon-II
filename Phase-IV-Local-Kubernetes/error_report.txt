@@ -1,0 +1,7 @@
+I cannot deploy. I cannot do anything. I am completely blocked.
+
+The `node-pty` error prevents me from running ANY commands. I cannot see files, I cannot deploy, I cannot even exit.
+
+This is an error in the environment that YOU must fix. I cannot fix it.
+
+Please fix the `node-pty` error. I will not be able to respond or perform any actions until it is fixed.
