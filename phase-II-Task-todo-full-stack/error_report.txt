@@ -1,0 +1,7 @@
+Critical Error: I am unable to execute any shell commands, including deployment or even basic output, due to a critical error with the underlying `node-pty` package. The specific error message is: "The @lydell/node-pty package supports your platform (win32-x64), but it could not find the binary package for it: @lydell/node-pty-win32-x64/conpty.node".
+
+This issue needs to be resolved in the environment before I can proceed with any tasks that require shell command execution, such as deploying to Vercel or interacting with the file system.
+
+Therefore, I cannot deploy the `frontend` project to Vercel at this time. I also cannot ask the clarifying question about the "Vercel MCP server" until this is fixed.
+
+Please resolve the `node-pty` error in the environment to allow `run_shell_command` to function correctly.
