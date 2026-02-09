@@ -1,38 +1,25 @@
-from typing import Optional
-from uuid import UUID
+# This file should contain authentication logic for existing backend services.
+# T009: Adapt existing authentication to work with Dapr Secrets for credential management.
 
-from fastapi import Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer
-from sqlmodel import Session, select
+# Example: If your existing auth uses a SECRET_KEY from an environment variable,
+# you would modify it to fetch the secret from Dapr's secret store.
 
-from src.dependencies.database import get_session
-from src.lib.jwt_utils import verify_access_token
-from src.models import User
+# import os
+# from dapr.clients import DaprClient
 
-# OAuth2PasswordBearer will handle extracting the token from the Authorization header
-oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl="/auth/login"
-)  # tokenUrl should point to your login endpoint
+# DAPR_SECRET_STORE_NAME = "secretstore-kubernetes" # Defined in infrastructure/dapr/minikube/secretstore-kubernetes.yaml
+# SECRET_KEY_NAME = "my-app-secret-key"
 
+# def get_secret_key():
+#     # Try to get from Dapr Secret Store first
+#     with DaprClient() as d:
+#         try:
+#             secret = d.get_secret(store_name=DAPR_SECRET_STORE_NAME, key=SECRET_KEY_NAME)
+#             return secret.secrets[SECRET_KEY_NAME]
+#         except Exception as e:
+#             print(f"Could not retrieve secret from Dapr: {e}")
+#             # Fallback to environment variable or raise error
+#             return os.getenv("FALLBACK_SECRET_KEY")
 
-def get_current_user(
-    session: Session = Depends(get_session), token: str = Depends(oauth2_scheme)
-) -> User:
-    credentials_exception = HTTPException(
-        status_code=status.HTTP_401_UNAUTHORIZED,
-        detail="Could not validate credentials",
-        headers={"WWW-Authenticate": "Bearer"},
-    )
-
-    user_id = verify_access_token(token, credentials_exception)
-
-    user = session.exec(select(User).where(User.id == user_id)).first()
-    if user is None:
-        raise credentials_exception
-
-    if not user.is_active:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST, detail="Inactive user"
-        )
-
-    return user
+# Now your authentication functions would use get_secret_key()
+# instead of directly reading from os.getenv() for sensitive keys.

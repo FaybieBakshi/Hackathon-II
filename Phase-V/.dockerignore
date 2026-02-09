@@ -1,7 +1,8 @@
-.idea/
+.git/
+.gitignore
+.dockerignore
 .vscode/
-.DS_Store
-Thumbs.db
+.idea/
 *.log
 *.tmp
 *.swp
@@ -11,8 +12,6 @@ __pycache__/
 .ruff_cache/
 .venv/
 venv/
-dist/
-build/
 node_modules/
 .next/
 package-lock.json
@@ -20,12 +19,3 @@ yarn.lock
 pnpm-lock.yaml
 .env
 .env.*
-*.tfstate*
-.terraform/
-.terraform.lock.hcl
-*.secret.yaml
-secrets/
-.kube/
-kubeconfig*
-*.key
-*.crt

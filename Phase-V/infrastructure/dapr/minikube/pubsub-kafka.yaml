@@ -1,0 +1,33 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: pubsub-kafka
+  namespace: default
+spec:
+  type: pubsub.kafka
+  version: v1
+  metadata:
+  - name: brokers
+    value: "redpanda-0.redpanda:9092" # Placeholder for local Redpanda broker
+  - name: authRequired
+    value: "false"
+  - name: disableTls
+    value: "true"
+  - name: consumerID
+    value: "my-consumer-group" # Consumer group ID
+  - name: consumerGroup
+    value: "my-consumer-group" # Consumer group ID
+  - name: maxMessages
+    value: "100" # Max messages per consumer group
+  - name: maxBytes
+    value: "1048576" # Max bytes per consumer group
+  - name: enableTLS
+    value: "false"
+  - name: caCert
+    value: ""
+  - name: clientCert
+    value: ""
+  - name: clientKey
+    value: ""
+  - name: initialOffset
+    value: "oldest" # Start consuming from oldest offset

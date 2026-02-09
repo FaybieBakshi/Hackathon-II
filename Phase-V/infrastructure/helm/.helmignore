@@ -1,0 +1,13 @@
+# Common helm ignores
+.DS_Store
+.git
+.gitignore
+.helmignore
+# Charts specific
+Chart.lock
+tmp/
+*.tgz
+*.zip
+# Kubernetes specific
+*.kubeconfig
+*.secret

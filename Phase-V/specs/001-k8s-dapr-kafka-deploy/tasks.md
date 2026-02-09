@@ -27,10 +27,10 @@ description: "Generated tasks for Production Kubernetes Deployment with Dapr & K
 
 **Purpose**: Project initialization and basic structure for the new architecture components.
 
-- [ ] T001 Create new project directories: `backend/src/events/`, `infrastructure/kubernetes/`, `infrastructure/helm/`, `infrastructure/dapr/`, `cicd/`
-- [ ] T002 Install Dapr CLI and initialize Dapr on local Minikube (`minikube start`, `dapr init -k`)
-- [ ] T003 Setup local Redpanda/Kafka for development (e.g., `helm install redpanda redpanda/redpanda`)
-- [ ] T004 Install `kubectl` and `helm` command-line tools
+- [X] T001 Create new project directories: `backend/src/events/`, `infrastructure/kubernetes/`, `infrastructure/helm/`, `infrastructure/dapr/`, `cicd/`
+- [X] T002 Install Dapr CLI and initialize Dapr on local Minikube (`minikube start`, `dapr init -k`)
+- [X] T003 Setup local Redpanda/Kafka for development (e.g., `helm install redpanda redpanda/redpanda`)
+- [X] T004 Install `kubectl` and `helm` command-line tools
 
 ---
 
@@ -40,11 +40,11 @@ description: "Generated tasks for Production Kubernetes Deployment with Dapr & K
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T005 Define Dapr components (Pub/Sub for Kafka, State Store, Secret Store) for local Minikube environment in `infrastructure/dapr/minikube/`
-- [ ] T006 Integrate Dapr with existing backend services (add Dapr sidecar annotations to Kubernetes service configurations)
-- [ ] T007 Update existing backend services to use Dapr Service Invocation for inter-service communication instead of direct HTTP calls
-- [ ] T008 Implement base Kafka event producer/consumer logic using Dapr Pub/Sub in `backend/src/events/base_event_handler.py`
-- [ ] T009 Adapt existing authentication to work with Dapr Secrets for credential management in `backend/src/dependencies/auth.py`
+- [X] T005 Define Dapr components (Pub/Sub for Kafka, State Store, Secret Store) for local Minikube environment in `infrastructure/dapr/minikube/`
+- [X] T006 Integrate Dapr with existing backend services (add Dapr sidecar annotations to Kubernetes service configurations)
+- [X] T007 Update existing backend services to use Dapr Service Invocation for inter-service communication instead of direct HTTP calls
+- [X] T008 Implement base Kafka event producer/consumer logic using Dapr Pub/Sub in `backend/src/events/base_event_handler.py`
+- [X] T009 Adapt existing authentication to work with Dapr Secrets for credential management in `backend/src/dependencies/auth.py`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel.
 
