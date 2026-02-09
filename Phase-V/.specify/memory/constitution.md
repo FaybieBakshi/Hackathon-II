@@ -1,20 +1,14 @@
 <!--
 Sync Impact Report:
-Version change:  → 1.0.0
+Version change: 1.0.0 → 2.0.0
 List of modified principles:
-  - PRINCIPLE_1_NAME → Natural Language Interface
-  - PRINCIPLE_2_NAME → Stateless Server Architecture
-  - PRINCIPLE_3_NAME → MCP Tools as SSoT
-  - PRINCIPLE_4_NAME → Agentic Workflow
-Added sections:
-  - Key Standards
-  - Constraints
-  - Success Criteria (Acceptance Criteria)
-Removed sections:
-  - PRINCIPLE_5_NAME
-  - PRINCIPLE_6_NAME
-  - PRINCIPLE_5_DESCRIPTION
-  - PRINCIPLE__DESCRIPTION
+  - Natural Language Interface → Event-driven architecture for scalable task management
+  - Stateless Server Architecture → Production-ready Kubernetes deployment with Dapr
+  - MCP Tools as SSoT → Full observability (monitoring, logging, tracing)
+  - Agentic Workflow → Infrastructure as Code approach
+  - (New) → Zero-downtime deployments
+Added sections: None
+Removed sections: None
 Templates requiring updates:
   - .specify/templates/plan-template.md ⚠ pending
   - .specify/templates/spec-template.md ⚠ pending
@@ -38,45 +32,51 @@ Templates requiring updates:
   - .specify/commands/sp.taskstoissues.toml ⚠ pending
 Follow-up TODOs: None
 -->
-# Todo AI Chatbot - Phase III Constitution
+# Production-Grade Kubernetes Deployment with Event-Driven Architecture
 
 ## Core Principles
 
-### I. Natural Language Interface
-All task operations are managed through natural language interaction.
+### I. Event-driven architecture for scalable task management
+Leverage event streams and asynchronous processing to ensure high scalability and responsiveness for task management operations.
 
-### II. Stateless Server Architecture
-The server remains stateless, with conversation context and task data persisted in the database.
+### II. Production-ready Kubernetes deployment with Dapr
+Deploy the application to Kubernetes, utilizing Dapr for building blocks that abstract away common distributed system challenges.
 
-### III. MCP Tools as SSoT
-MCP (Model, Control, Presenter) tools are the single source of truth for all task operations, ensuring consistent and controlled execution.
+### III. Full observability (monitoring, logging, tracing)
+Implement a comprehensive observability stack to provide deep insights into application behavior, performance, and potential issues.
 
-### IV. Agentic Workflow
-The AI agent autonomously decides and utilizes appropriate MCP tools based on the conversational context and user intent.
+### IV. Infrastructure as Code approach
+Manage all infrastructure (Kubernetes, Dapr configurations, monitoring) using Infrastructure as Code (IaC) principles for consistency and repeatability.
+
+### V. Zero-downtime deployments
+Ensure continuous service availability during application updates and deployments through robust deployment strategies (e.g., rolling updates, blue/green deployments).
 
 ## Key Standards
 
-- User Ownership Enforcement: All MCP tools must enforce user ownership by validating `user_id` against authentication credentials.
-- Conversation Persistence: Conversation history must be stored and retrieved to maintain context across interactions.
-- Agent Confirmations and Responses: The agent must confirm actions with the user and provide clear, friendly responses.
-- Stateless Chat Endpoint: The chat endpoint must be truly stateless, with no in-memory state relying solely on persisted data.
+- Use Dapr for distributed application runtime: All microservices must integrate with Dapr for service invocation, state management, and pub/sub messaging.
+- Implement Kafka for event streaming: Apache Kafka (or Redpanda) must be used as the primary event streaming platform for inter-service communication and event persistence.
+- Deploy to Kubernetes (Minikube local → GKE/AKS cloud): The application must first be deployable and functional on Minikube for local development and testing, then transition to GKE or AKS for cloud deployment.
+- Set up CI/CD with GitHub Actions: A robust CI/CD pipeline using GitHub Actions must automate testing, building, and deploying the application.
+- Configure monitoring stack (Prometheus/Grafana): Prometheus must be used for metrics collection and Grafana for dashboarding and visualization of application and infrastructure health.
 
 ## Constraints
 
-- Official MCP SDK for Python: Only the official MCP SDK for Python should be used for backend development.
-- OpenAI Agents SDK: The OpenAI Agents SDK is to be used for agent implementation, avoiding raw API calls.
-- ChatKit Frontend Integration: The ChatKit frontend must seamlessly integrate with the existing authentication system.
-- Existing Task Database Model: The existing Task database model from Phase II must be reused without modifications.
+- Must integrate with existing Todo application: The new architecture and deployment must seamlessly integrate with and enhance the existing Todo application's functionality.
+- Use Dapr building blocks (Pub/Sub, State, Bindings, Secrets): Only Dapr's official building blocks should be used for core distributed functionalities.
+- Kafka for event streaming (Redpanda Cloud or self-hosted): Kafka, either as a managed service (Redpanda Cloud) or self-hosted, is the mandated event streaming solution.
+- Deploy to Minikube first, then cloud (GKE/AKS): Development and initial testing must target Minikube, with subsequent deployments to Google Kubernetes Engine (GKE) or Azure Kubernetes Service (AKS).
+- Implement all advanced features (recurring tasks, due dates, priorities, tags): The architecture must support and enable the implementation of all advanced task management features defined in previous phases.
 
 ## Success Criteria (Acceptance Criteria)
 
-- Users can manage tasks entirely through natural language chat.
-- The agent correctly interprets commands and invokes appropriate MCP tools.
-- Conversation history persists across server restarts.
-- All Phase II security measures, including user isolation, are maintained.
+- Full Dapr integration working locally and in cloud: All Dapr building blocks are correctly configured and functional across local and cloud environments.
+- Event-driven features operational (reminders, recurring tasks): All event-driven features, such as reminders and recurring tasks, are fully implemented and working as expected.
+- CI/CD pipeline deploys automatically: The CI/CD pipeline successfully automates deployments to both Minikube and the chosen cloud Kubernetes service.
+- Monitoring provides visibility into all services: The monitoring stack offers comprehensive visibility into the health, performance, and logs of all deployed services.
+- All Phase II-IV features remain functional: Core functionalities developed in previous phases continue to work without regressions after the architectural changes.
 
 ## Governance
 
 The constitution supersedes all other practices. Amendments require proper documentation, approval, and a migration plan if applicable. All pull requests and code reviews must verify compliance with these principles. Complexity must be justified.
 
-**Version**: 1.0.0 | **Ratified**: 2026-02-08 | **Last Amended**: 2026-02-08
+**Version**: 2.0.0 | **Ratified**: 2026-02-08 | **Last Amended**: 2026-02-09
